@@ -1,0 +1,22 @@
+.qhzc {
+  /deep/ {
+    .box {
+      display: flex;
+      .labelBox {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .contWrap {
+      height: 300px;
+      overflow: auto;
+      .contItem {
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

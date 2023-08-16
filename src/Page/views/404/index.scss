@@ -1,0 +1,193 @@
+/*弹性盒子居中（传入null不设置该属性）*/
+@mixin flex-center($direction: row, $justify: center, $align: center, $flex-wrap: null) {
+  display: -webkit-flex;
+  display: flex;
+  @if ($direction != null) {
+    flex-direction: $direction;
+    -webkit-flex-direction: $direction;
+  }
+  @if ($justify != null) {
+    justify-content: $justify;
+    -webkit-justify-content: $justify;
+  }
+  @if ($align != null) {
+    align-items: $align;
+    -webkit-align-items: $align;
+  }
+  @if ($flex-wrap != null) {
+    flex-wrap: $flex-wrap;
+    -webkit-flex-wrap: $flex-wrap;
+  }
+}
+
+/* 行高 */
+@mixin line-height($height: 30px, $line-height: null) {
+  @if ($height != null) {
+    height: $height;
+    line-height: $height;
+  }
+  @if ($line-height != null) {
+    line-height: $line-height;
+  }
+}
+
+/* 背景图 */
+@mixin bg-image($url, $repeat: no-repeat, $position: center, $size: cover) {
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+}
+
+:not(input,textarea,select) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+$imageUrl: './images/';
+.adv{
+  $btnColor: #FF500C;
+  min-height: 100vh;
+  @include flex-center(column, flex-start);
+  background-color: #fff;
+  padding-top: .86rem;
+  header{
+    width: 5.6rem;
+    height: 4.54rem;
+    background: url($imageUrl + '/top.png') no-repeat center/cover;
+    @include flex-center(row, center, flex-end);
+    padding-bottom: .54rem;
+    .errorTxt{
+      font-family: PingFangSC-Regular;
+      font-size: .28rem;
+      color: #4B4B4B;
+      line-height: .48rem;
+    }
+  }
+
+  .quotes{
+    margin: .6rem 0 1.2rem;
+    font-family: PingFangSC-Regular;
+    color: #DCA346;
+    padding: 0 .55rem;
+    @include flex-center(column);
+    .title{
+      font-size: .28rem;
+      line-height: .48rem;
+      padding: .06rem .15rem;
+      width: fit-content;
+      margin-bottom: .24rem;
+      position: relative;
+      &:before, &:after{
+        content: '';
+        width: .13rem;
+        height: .43rem;
+        position: absolute;
+        bottom: -.43rem;
+        right: 13.5%;
+        background: url($imageUrl + '/icon.png') no-repeat center/.13rem .43rem;
+      }
+      &:after{
+        left: 13.5%;
+      }
+    }
+    .title, .cont{
+      border: .02rem solid #FDE7BC;
+      border-radius: .08rem;
+      background: #FFFDF8;
+    }
+    .cont{
+      padding: .3rem .2rem .22rem;
+      .text{
+        font-size: .26rem;
+        line-height: .38rem;
+      }
+    }
+  }
+
+  footer{
+    .btn{
+      width: 4rem;
+      @include line-height(.8rem);
+      border: 1px solid $btnColor;
+      border-radius: .08rem;
+      font-family: PingFangSC-Regular;
+      font-size: .34rem;
+      color: $btnColor;
+      text-align: center;
+    }
+  }
+}
+
+.black .adv{
+  $btnColor: #3381E3;
+  background-color: #171717;
+  header{
+    background: url($imageUrl + '/top-blk.png') no-repeat center/cover;
+    .errorTxt{
+      color: #999999;
+    }
+  }
+
+  .quotes{
+    color: #A57526;
+    .title{
+      &:before, &:after{
+        background: url($imageUrl + '/icon-blk.png') no-repeat center/.13rem .43rem;
+      }
+    }
+    .title, .cont{
+      border: .02rem solid #594120;
+      border-radius: .08rem;
+      background: #312A20;
+    }
+  }
+
+  footer{
+    .btn{
+      color: $btnColor;
+      border: 1px solid $btnColor;
+    }
+  }
+}

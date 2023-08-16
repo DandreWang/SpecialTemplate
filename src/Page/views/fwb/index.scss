@@ -1,0 +1,22 @@
+@import "~@common/style/common";
+
+.fwb-html {
+  font-size: .32rem;
+  background: #F7F8FA;
+  $fonts: SimSun, SimHei, Microsoft YaHei, KaiTi, FangSong, SourceHanSansCN;
+  $fonts_name: '宋体', '黑体', '微软雅黑', '楷体', '仿宋', '思源';
+  @each $f in $fonts {
+    $i: index($fonts, $f);
+    .ql-font-#{$f} {
+      font-family: $f;
+    }
+  }
+
+  /deep/ {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.black .hqbb-html {
+}

@@ -1,0 +1,126 @@
+.rdzx {
+  .zxid {
+    display: inline-block;
+    width: 500px;
+  }
+  .checkZxid {
+    display: inline-block;
+  }
+  .controlBtn {
+    display: block;
+  }
+  .btnImage {
+    width: 400px;
+  }
+  .light {
+    float: left;
+  }
+  .dark {
+    float: right;
+  }
+  /deep/ .el-form-item {
+    .el-form-item__content {
+      width: calc(100% - 120px);
+    }
+    &.bg {
+      display: block;
+    }
+    .uploader {
+      .el-upload-list {
+        width: 80px;
+        position: relative;
+        .el-upload-list__item {
+          transition: none !important;
+          &.is-success {
+            &:hover {
+              &:before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2000;
+              }
+            }
+            i {
+              position: absolute;
+              z-index: 2002;
+              color: white;
+              font-size: 20px;
+              transform: translate(0, -50%);
+            }
+            .el-icon-zoom-in {
+              left: 25%;
+              top: 50%;
+            }
+            .el-icon-delete {
+              left: 55%;
+              top: 50%;
+            }
+          }
+          .el-upload-list__item-thumbnail {
+            margin-left: -75px;
+          }
+        }
+      }
+    }
+  }
+  .btnTabs {
+    width: 640px;
+    margin-top: -10px;
+    /deep/.el-tabs__header {
+      margin-bottom: 0;
+      border: 0;
+      .el-tabs__nav {
+        border: 1px solid #d7d9e0;
+        height: 30px;
+        .el-tabs__item {
+          line-height: 30px;
+        }
+      }
+    }
+    /deep/.el-tabs__content {
+      border: 1px solid #d7d9e0;
+      border-radius: 6px;
+      border-top-left-radius: 0;
+      padding-top: 10px;
+      .el-form-item {
+        label {
+          padding-right: 0;
+        }
+        &.btns {
+          width: 200px;
+          .el-form-item__content {
+            width: calc(100% - 85px);
+          }
+        }
+        &.moneyBtn {
+          width: 340px;
+          .el-form-item__content {
+            width: calc(100% - 150px);
+          }
+        }
+        &.futureBtn {
+          width: 300px;
+          .el-form-item__content {
+            width: calc(100% - 120px);
+          }
+        }
+        &.futureType {
+          width: 300px;
+          .el-form-item__content {
+            width: calc(100% - 150px);
+          }
+        }
+        &.type {
+          width: 300px;
+        }
+        .linkInp {
+          width: 493px;
+        }
+      }
+    }
+  }
+}

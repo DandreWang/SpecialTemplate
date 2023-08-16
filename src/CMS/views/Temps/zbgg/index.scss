@@ -1,0 +1,194 @@
+.zbgg {
+  /deep/ .el-form-item {
+    .el-form-item__content {
+      width: calc(100% - 120px);
+    }
+    &.bg {
+      display: block;
+    }
+    .uploader, .popupUploader {
+      .el-upload-list {
+        width: 80px;
+        position: relative;
+        .el-upload-list__item {
+          transition: none !important;
+          &.is-success {
+            &:hover {
+              &:before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2000;
+              }
+            }
+            i {
+              position: absolute;
+              z-index: 2002;
+              color: white;
+              font-size: 20px;
+              transform: translate(0, -50%);
+            }
+            .el-icon-zoom-in {
+              left: 25%;
+              top: 50%;
+            }
+            .el-icon-delete {
+              left: 55%;
+              top: 50%;
+            }
+          }
+          .el-upload-list__item-thumbnail {
+            margin-left: -75px;
+          }
+        }
+      }
+    }
+  }
+  .btnTabs {
+    width: 640px;
+    margin-top: -10px;
+    /deep/.el-tabs__header {
+      margin-bottom: 0;
+      border: 0;
+      .el-tabs__nav {
+        border: 1px solid #d7d9e0;
+        height: 30px;
+        .el-tabs__item {
+          line-height: 30px;
+        }
+      }
+    }
+    /deep/.el-tabs__content {
+      border: 1px solid #d7d9e0;
+      border-radius: 6px;
+      border-top-left-radius: 0;
+      padding-top: 10px;
+      .el-form-item {
+        label {
+          padding-right: 0;
+        }
+        &.btns {
+          width: 200px;
+          .el-form-item__content {
+            width: calc(100% - 85px);
+          }
+        }
+        &.btnBg {
+          .el-form-item__content {
+            width: 350px; // width: unset;
+            .zbgg {
+              width: 100px;
+            }
+          }
+        }
+        &.moneyBtn {
+          width: 340px;
+          .el-form-item__content {
+            width: calc(100% - 160px);
+          }
+        }
+        &.futureBtn {
+          width: 300px;
+          .el-form-item__content {
+            width: calc(100% - 160px);
+          }
+        }
+        &.futureType {
+          width: 300px;
+          .el-form-item__content {
+            width: calc(100% - 150px);
+          }
+        }
+        &.type {
+          width: 300px;
+        }
+        &.splitSwitch {
+          width: 300px;
+          .el-form-item__content {
+            width: calc(100% - 150px);
+          }
+        }
+        &.noBottom {
+          margin-bottom: 0;
+        }
+        .linkInp {
+          width: 493px;
+        }
+      }
+    }
+  }
+
+  // 挽留弹窗配置
+  .popupTitle {
+    width: 600px;
+    margin: 30px 0 5px 0;
+    display: flex;
+    justify-content: flex-start;
+
+    /deep/ .el-form-item__label {
+      font-weight: bold;
+      font-size: 1.17em;
+      width: 200px;
+      text-align: left;
+    }
+  }
+
+  .popupOpt {
+    width: 640px;
+    padding-top: 20px;
+    display: flex;
+    border: 1px solid #d7d9e0;
+    border-radius: 6px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .popupLinkFor, .popupUserType, .popupFrequency{
+      width: 250px;
+      .el-form-item__content {
+        width: calc(100% - 150px);
+      }
+    }
+  }
+
+  .popupBg{
+    width: 300px;
+    display: flex;
+    justify-content: flex-start;
+
+    /deep/ .el-form-item__label {
+      width: 180px;
+    }
+    /deep/.el-form-item__content {
+      width: calc(100% - 130px);
+    }
+  }
+
+  .skipTo {
+    margin-top: 22px;
+    width: 290px;
+    /deep/.el-form-item__content {
+      width: calc(100% - 150px);
+    }
+  }
+  .splitSwitch {
+    width: 300px;
+    /deep/.el-form-item__content {
+      width: calc(100% - 150px);
+    }
+  }
+
+  .linkInp {
+    width: 490px;
+    /deep/.el-form-item__content {
+      width: calc(100% - 150px);
+    }
+  }
+}
+
+#pane-popup1 {
+  display: block !important;
+}

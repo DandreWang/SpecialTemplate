@@ -1,0 +1,202 @@
+@import "~@common/style/common";
+.hqxw-html {
+  $c1: #22007B;
+  $height: 3.99rem;
+  background: #F7F8FA;
+  height: 100%;
+  font-family: SourceHanSansSC-Normal;
+  header {
+    background: #fff;
+    width: 100%;
+    height: .9rem;
+    padding: 0 .3rem;
+    @include flex-center(row, space-between);
+    .left {
+      font-size: .32rem;
+      color: #333;
+    }
+    .right {
+      font-size: .28rem;
+      color: #EA5502;
+      padding-right: .32rem;
+      @include bg-image('./images/arrow', no-repeat, right, .16rem .28rem);
+    }
+  }
+  .txt{
+    width: 100%;
+    margin-top: .2rem;
+    padding: .2rem .3rem .32rem;
+    background-color: #fff;
+    .title{
+      width: fit-content;
+      padding: 0 .14rem;
+      margin-left: -.14rem;
+      margin-bottom: .16rem;
+      position: relative;
+      p{
+        font-family: SourceHanSansSC-Normal;
+        font-size: .4rem;
+        color: #333333;
+        position: relative;
+        z-index: 1;
+        transform: translateZ(1px);
+        line-height: .58rem;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: .24rem;
+        width: 100%;
+        background-image: linear-gradient(-90deg, #FFEE9C 0%, #FFF8D8 100%);
+      }
+    }
+    .txtCont{
+      font-family: SourceHanSansSC-Normal;
+      font-size: .3rem;
+      color: #666666;
+      line-height: .46rem;
+    }
+  }
+  .content {
+    width: 100%;
+    background: #fff;
+    padding: 0 .3rem .01rem;
+    margin-top: .2rem;
+    .hqBox {
+      .loading {
+        width: 100%;
+        min-height: 3.99rem;
+        line-height: 3.99rem;
+        text-align: center;
+        img {
+          width: 3.7rem;
+          height: .8rem;
+        }
+      }
+    }
+
+    .tr {
+      @include flex-center();
+      @include line-height(0.56rem);
+      margin-bottom: .32rem;
+      position: relative;
+      font-size: .3rem;
+      color: #666;
+      .th, .td{
+        flex: 1;
+        text-align: right;
+        &:nth-of-type(1){
+          text-align: left;
+        }
+      }
+      &.thr {
+        @include line-height(0.68rem);
+        font-size: .24rem;
+        color: #999;
+        position: relative;
+        overflow: visible;
+        &:after{
+          content: '';
+          position: absolute;
+          left: -.3rem;
+          bottom: 0;
+          height: 1px;
+          width: 7.5rem;
+          background: #eee;
+          transform: scaleY(0.5);
+        }
+      }
+      &.z{
+        .price, .zdf{
+          color: #EA0202;
+        }
+      }
+      &.d{
+        .price, .zdf{
+          color: #40BD6E;
+        }
+      }
+      .hqBtn {
+        @include flex-center(row, flex-end);
+        height: .56rem;
+        line-height: .56rem;
+        p{
+          padding: 0 .2rem;
+          width: fit-content;
+          border-radius: .22rem;
+          color: #e95502;
+          &.icon1, &.icon2{
+            flex-shrink: 0;
+            font-family: SourceHanSansSC-Normal;
+            padding: 0 .2rem;
+            border-radius: .28rem;
+          }
+          &.icon1{
+            color: #fff;
+            background-image: linear-gradient(-180deg, #F67F31 0%, #EA4816 100%);
+          }
+          &.icon2{
+            color: #333;
+            background-image: linear-gradient(-180deg, #FFF1B2 0%, #FFDF7B 100%);
+          }
+        }
+      }
+    }
+  }
+  .emp{
+    padding: .08rem 0 .4rem;
+  }
+  .btnBox {
+    height: .9rem;
+    background-image: linear-gradient(-180deg, #F88E49 0%, #E2582C 100%);
+    border-radius: .45rem;
+    @include flex-center();
+
+    .linkBtnTxt, .btnTxt {
+      color: #fff;
+      font-size: .4rem;
+    }
+  }
+}
+
+.black .hqxw-html {
+  $color: #C4C4C4;
+  background: #0d0d0d;
+  header {
+    background: #171717;
+    .left {
+      color: $color;
+    }
+  }
+  .content {
+    background: #171717;
+    .hqBox {
+      .tr{
+        color: $color;
+        &.thr {
+          color: #999;
+          &:after {
+            background: #262626;
+          }
+        }
+      }
+    }
+  }
+  .txt{
+    background-color: #171717;
+    .title{
+      p{
+        color: $color;
+      }
+      &:after{
+        opacity: 0.36;
+        background-image: linear-gradient(-90deg, #F67F31 0%, #EA4816 100%);
+      }
+    }
+    .txtCont{
+      color: #999999;
+    }
+  }
+}

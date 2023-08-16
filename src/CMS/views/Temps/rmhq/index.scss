@@ -1,0 +1,31 @@
+.rmhq {
+  .tr {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    .el-form-item {
+      margin-bottom: 0;
+    }
+    .selectBox {
+      width: 130px;
+    }
+    .codeBox {
+      width: 100px;
+    }
+    .numBox {
+      width: 90px;
+    }
+  }
+  /deep/{
+    .el-radio {
+     margin-right: 10px; 
+    }
+    .form {
+      .el-form-item.isinline {
+        .el-form-item__content {
+          width: calc(100% - 120px);
+        }
+      }
+    }
+  }
+}

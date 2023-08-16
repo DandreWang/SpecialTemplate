@@ -1,0 +1,13 @@
+.hqbb {
+  .tr {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    .el-form-item {
+      margin-bottom: 0;
+    }
+    .selectBox {
+      width: 140px;
+    }
+  }
+}

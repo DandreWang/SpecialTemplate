@@ -1,0 +1,178 @@
+@import "~@common/style/common";
+
+$imgFolder: "./images/";
+/* 背景图 */
+@mixin cls-image($url) {
+  @include bg-image($imgFolder + $url)
+}
+
+.qhzc-html {
+  width: 100%;
+  //min-height: 100vh;
+  min-height: 100%;
+  line-height: 1.5;
+  position: relative;
+  padding-bottom: 2.02rem;
+
+  .top {
+    padding: .48rem 0 0 .6rem;
+    height: 5.2rem;
+    color: #fff;
+    margin-bottom: -.16rem;
+
+    .title {
+      font-size: .64rem;
+      line-height: .92rem;
+      font-weight: bold;
+      font-family: SourceHanSansSC-Bold;
+      text-shadow: 0 0 .08rem rgba(0, 15, 116, 0.25);
+    }
+
+    .desc, .dt {
+      width: fit-content;
+      min-width: 4.94rem;
+      font-size: .32rem;
+      font-family: SourceHanSansSC-Normal;
+    }
+
+    .desc {
+      padding: 0 .12rem 0 .34rem;
+      -webkit-background-size: 100% .48rem !important;
+      background-size: 100% .48rem !important;
+      background-position: left center !important;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .content {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0 .52rem;
+
+    .tit {
+      width: fit-content;
+      font-weight: bold;
+      font-size: .32rem;
+      color: #333;
+      font-family: SourceHanSansSC-Bold;
+      line-height: .14rem;
+      padding: 0 .08rem;
+      height: .3rem;
+      background-position: bottom;
+      margin-bottom: .42rem;
+    }
+
+    .txtBox {
+      padding: .36rem;
+      position: relative;
+      margin-bottom: .88rem;
+
+      .bd, .bd:after {
+        height: .46rem;
+        position: absolute;
+        top: 0;
+        background-repeat: no-repeat;
+        background-size: .46rem 100%;
+        background-position: left;
+      }
+
+      .bd {
+        width: 100%;
+        left: 0;
+
+        &:after {
+          content: '';
+          width: .46rem;
+          right: 0;
+          transform: rotateY(180deg);
+        }
+
+        &.b {
+          top: unset;
+          bottom: 0;
+          transform: rotateX(180deg);
+        }
+      }
+
+      .subTit {
+        min-height: .42rem;
+        font-size: .28rem;
+        padding-left: .2rem;
+        font-family: SourceHanSansSC-Bold;
+        font-weight: bold;
+        color: #333;
+        position: relative;
+        margin-bottom: .08rem;
+
+        &:after {
+          content: '';
+          width: .1rem;
+          height: .1rem;
+          background-image: linear-gradient(-180deg, #F67F31 0%, #EA4816 100%);
+          position: absolute;
+          left: 0;
+          top: .16rem;
+        }
+      }
+
+      .txt {
+        font-size: .28rem;
+        color: #666;
+        margin-bottom: .2rem;
+      }
+
+      .img {
+        width: 100%;
+        height: auto;
+        margin-bottom: .2rem;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 2.02rem;
+    margin-top: -.52rem;
+    background-size: 3.26rem !important;
+    background-position: right !important;
+    background-repeat: no-repeat;
+  }
+
+  $themeList: (1, #E7FBFF, #F8FEFF), (2, #FDF1D7, #FEFBF4), (3, #FBF2B9, #FEFBEB), (4, #FEECF4, #FFF9FC);
+  @each $idx, $c1, $c2 in $themeList {
+    &.theme#{$idx} {
+      background-image: url($imgFolder + "head" + $idx + "@2x.png"), linear-gradient(-180deg, $c1 0%, $c2 100%);
+      @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+        background-image: url($imgFolder + "head" + $idx + "@3x.png"), linear-gradient(-180deg, $c1 0%, $c2 100%);
+      }
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+
+      .desc {
+        @include cls-image("bar"+ $idx);
+      }
+
+      .bd, .bd:after {
+        @include cls-image("box"+ $idx);
+      }
+
+      .tit {
+        @if ($idx == 1) {
+          background-image: linear-gradient(0deg, #BDEAFF 0%, #93D4FE 97%);
+        } @else if ($idx == 2) {
+          background-image: linear-gradient(0deg, #ECDAB8 1%, #E5BC86 96%);
+        } @else if ($idx == 3) {
+          background-image: linear-gradient(0deg, #FFEA9F 0%, #FFC222 100%);
+        } @else if ($idx == 4) {
+          background-image: linear-gradient(0deg, #FFF1F7 0%, #FA8CC5 100%);
+        }
+      }
+
+      footer {
+        @include cls-image('footer' + $idx)
+      }
+    }
+  }
+}

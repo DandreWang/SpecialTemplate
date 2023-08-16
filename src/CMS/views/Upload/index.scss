@@ -1,0 +1,40 @@
+.uploads {
+  font-family: PingFangSC-Medium;
+  height: 100vh;
+  padding: 75px 36px;
+  background: #f8fafb;
+  position: relative;
+  .form{
+    background-color: #fff;
+    padding: 16px 48px 12px;
+    min-height: calc(100vh - 125px);
+    .el-form-item {
+      &.inp{
+        width: 440px;
+      }
+    }
+  }
+  &:before {
+    content: '';
+    height: 75px;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #E8ECEF;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  header {
+    font-size: 0;
+    margin: 20px 0;
+  }
+  .tableBox {
+    background: #fff;
+    padding: 16px 48px 12px;
+    .icon {
+      width: 23px;
+      height: 22px;
+      cursor: pointer;
+    }
+  }
+}

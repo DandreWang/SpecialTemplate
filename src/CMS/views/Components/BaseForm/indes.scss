@@ -1,0 +1,62 @@
+.form {
+  .el-form-item {
+    width: calc(100% - 10px);
+    &.istit .el-form-item__label {
+      padding-bottom: 0;
+    }
+    &.isinline {
+      width: calc(50% - 10px);
+      /deep/.el-form-item__content {
+        width: calc(100% - 105px);
+        .el-input {
+          width: 100%;
+        }
+      }
+    }
+    &.isRow {
+      margin-right: 50px;
+    }
+    &.subItem {
+      .el-form-item__label {
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        line-height: 16px;
+        margin-top: 18px;
+      }
+    }
+    .el-form-item__label {
+      font-weight: unset;
+      font-family: PingFang-SC-Bold;
+      font-size: 20px;
+      line-height: 20px;
+      margin-top: 32px;
+      color: #778CA2;
+      padding-bottom: 14px;
+    }
+    .el-input__inner,.el-textarea__inner {
+      border: 1px solid #EBEEF1;
+      background: #F8FAFB;
+    }
+    .uploader {
+      .uploadImg, .el-upload-list--picture-card li, .el-upload--picture-card {
+        width: 120px;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      .el-upload--picture-card {
+        border: 0;
+      }
+    }
+    .colInp {
+      .colBox {
+        /deep/ .el-color-picker__trigger {
+          height: 40px;
+          border: 0;
+          padding: 6px 4px;
+        }
+      }
+    }
+  }
+}

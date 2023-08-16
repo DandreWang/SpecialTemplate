@@ -1,0 +1,48 @@
+@import "~@common/style/common";
+
+.zbgg-html {
+  //width: 100%;
+  min-height: 100vh;
+  position: relative;
+  // flex: none;
+  @include flex-center(column, flex-start);
+  width: 7.5rem;
+  position: relative;
+  margin: 0 auto;
+  .btn {
+    position: absolute;
+    max-width: 7.5rem;
+    @include flex-center(column, flex-end);
+    //&.pcBottom {
+    //  margin-top: 542px;
+    //  bottom: unset !important;
+    //}
+    .hasBg {
+      // margin-bottom: .2rem;
+      animation: BtnScaleAnimate .42s infinite;
+      transform: translateZ(31px);
+    }
+  }
+}
+.phone {
+  .zbgg-html {
+    width: 100%;
+    min-height: initial;
+  }
+  .btn.pcBottom {
+    margin-top: 542px;
+    bottom: unset !important;
+  }
+}
+
+@keyframes BtnScaleAnimate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

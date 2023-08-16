@@ -1,0 +1,42 @@
+.fwb {
+  /deep/ {
+    .editorWrapper {
+      width: 520px;
+      height: 420px;
+    }
+
+    .fileInp {
+      display: none;
+    }
+
+    $fonts: SimSun, SimHei, Microsoft YaHei, KaiTi, FangSong, SourceHanSansCN;
+    $fonts_name: '宋体', '黑体', '微软雅黑', '楷体', '仿宋', '思源';
+    .ql-snow .ql-picker.ql-font .ql-picker-label, .ql-snow .ql-picker.ql-font .ql-picker-item {
+      @each $s in $fonts {
+        $i: index($fonts, $s);
+        &[data-value='#{$s}']::before {
+          content: '#{nth($fonts_name, $i)}';
+          font-family: $s;
+        }
+      }
+    }
+    @each $f in $fonts {
+      $i: index($fonts, $f);
+      .ql-font-#{$f} {
+        font-family: $f;
+      }
+    }
+
+    .ql-snow .ql-picker.ql-size .ql-picker-label, .ql-snow .ql-picker.ql-size .ql-picker-item {
+      $sizes: 10px, 12px, 14px, 16px, 18px, 20px;
+      $sizes_: '.2rem', '.24rem', '.28rem', '.32rem', '.36rem', '.4rem';
+      @each $s in $sizes_ {
+        $i: index($sizes_, $s);
+        &[data-value='#{$s}']::before {
+          content: '#{nth($sizes, $i)}';
+        }
+      }
+    }
+
+  }
+}

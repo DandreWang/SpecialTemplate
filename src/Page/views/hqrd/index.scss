@@ -1,0 +1,916 @@
+@import "~@common/style/common";
+
+$imgFolder: "./images/";
+/* 背景图 */
+@mixin cls-image($url) {
+  @include bg-image($imgFolder + $url)
+}
+
+.hqrd-html {
+  min-height: 100%;
+  overflow: auto;
+  font-family: SourceHanSansSC-Normal;
+  line-height: 1.5;
+
+  header {
+    width: 100%;
+    position: relative;
+    @include flex-center(column);
+
+    .titBox {
+      @include flex-center(column);
+
+      .tit2 {
+        margin-top: -.2rem;
+        position: relative;
+        font-weight: bold;
+
+        &:before {
+          content: attr(text);
+          position: absolute;
+          -webkit-mask: linear-gradient(to bottom, #fff, transparent);
+          z-index: 1;
+        }
+      }
+
+      .tit3 {
+        font-size: .24rem;
+      }
+    }
+
+    .topBtn {
+      display: none;
+    }
+  }
+
+  /deep/ {
+
+    .title {
+      font-family: SourceHanSansSC-Bold;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    .content {
+      //position: relative;
+      padding: .56rem 0;
+      min-height: calc(100% - 4.8rem);
+
+      & > div {
+        margin: .56rem 0;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+
+      // 行情内容
+      .hqBox {
+        width: 100%;
+        padding: 0 .56rem;
+
+        .hqSub {
+          font-size: .24rem;
+          //white-space: pre;
+
+          b {
+            font-weight: normal;
+            color: #EE6723;
+          }
+        }
+
+        .hqImg {
+          width: 6.4rem;
+          height: 2.2rem;
+          margin-top: .14rem;
+        }
+      }
+
+      // 注
+      .desc {
+        font-size: .2rem;
+        margin: .32rem .56rem 0;
+
+        .tit {
+          font-weight: bold;
+        }
+
+        .txt {
+          //white-space: pre;
+        }
+      }
+
+      .card {
+        width: 100%;
+        padding-top: .64rem;
+        margin-bottom: -.32rem;
+
+        .title {
+          width: 6.4rem;
+          height: 1.4rem;
+          line-height: 1.4rem;
+          font-size: .44rem;
+          font-weight: bold;
+          color: #333;
+          padding-left: 0;
+        }
+
+        .txt {
+          font-size: .28rem;
+          //white-space: pre;
+        }
+      }
+
+      // 卡片1
+      .card1 {
+        height: 8.48rem;
+        margin-bottom: -.4rem;
+
+        .title {
+          margin-left: .24rem;
+          margin-bottom: .24rem;
+        }
+
+        .cons {
+          height: 5.12rem;
+          @include flex-center(column, space-around);
+
+          .trs {
+            @include flex-center(row, flex-start);
+            width: 100%;
+            padding-left: 1.1rem;
+            padding-right: 1rem;
+
+            &:nth-child(2) {
+              flex-direction: row-reverse;
+
+              .tit {
+                margin-right: 0;
+                margin-left: .2rem;
+              }
+            }
+
+            .tit {
+              @include flex-center(column, space-around);
+              font-family: SourceHanSansSC-Bold;
+              font-size: .44rem;
+              text-align: center;
+              width: .66rem;
+              flex-shrink: 0;
+              min-height: 1.28rem;
+              line-height: 1.22;
+              border: 1px solid transparent;
+              //-webkit-background-clip: text;
+              //color: transparent;
+              font-weight: bold;
+              margin-right: .2rem;
+            }
+          }
+        }
+      }
+
+      // 卡片2
+      .card2 {
+        height: 5.02rem;
+
+        .title {
+          margin-left: .88rem;
+        }
+
+        .txt {
+          @include flex-center(column, center, flex-start);
+          height: 2.26rem;
+          padding-left: 1.6rem;
+          padding-right: .96rem;
+          margin-top: -.064rem;
+        }
+      }
+
+
+      // 横向tips
+      .tips {
+        //width: 14.15rem;
+        height: 1.36rem;
+        background-size: 5.66rem 1.36rem !important;
+        background-position: left !important;
+        //margin-top: 1rem;
+      }
+
+      // 优势
+      .advantage {
+        width: 100%;
+        height: 6.14rem;
+        position: relative;
+
+        .txt {
+          font-size: .26rem;
+          position: absolute;
+          $pos: (
+              (1.8rem, 4.64rem, .9rem, 5.44rem, 3.18rem),
+              (.8rem, .76rem, 3.14rem, 2.74rem, 4.72rem)
+          );
+          @for $idx from 1 through 5 {
+            &:nth-child(#{$idx}) {
+              top: nth(nth($pos, 2), $idx);
+              left: nth(nth($pos, 1), $idx);
+            }
+          }
+        }
+      }
+
+      // 特色功能
+      .partList {
+        padding-top: .48rem;
+        width: 100%;
+        @include flex-center(column, flex-start);
+
+        .partTr {
+          width: 100%;
+
+          .partTit {
+            font-family: SourceHanSansSC-Bold;
+            font-weight: bold;
+          }
+
+          .partTxt {
+            font-size: .26rem;
+            margin-top: .008rem;
+          }
+        }
+      }
+
+      // 水滴
+      .dropsList {
+        .trs {
+          @include flex-center(row, space-between);
+          font-size: .24rem;
+          width: 78%;
+          margin: .16rem auto 0;
+
+          .tit {
+            width: .96rem;
+            height: 1.14rem;
+            font-family: SourceHanSansSC-Bold;
+            font-weight: bold;
+            padding: .112rem .12rem 0;
+            @include flex-center();
+            text-align: center;
+            color: #333;
+          }
+
+          .txt {
+            width: 80%;
+          }
+
+          &:nth-child(2) {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+
+      // 覆盖齐全
+      .flow {
+        .flowImg {
+          margin-top: .2rem;
+          width: 100%;
+          height: 1.64rem;
+        }
+      }
+
+      .about {
+        width: 100%;
+        background-color: unset;
+        border: 0;
+        float: unset !important;
+        margin-bottom: 0;
+
+        .title {
+          padding-bottom: 0;
+        }
+
+        .txt {
+          font-size: .24rem;
+          margin: 0 .56rem;
+          position: relative;
+
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: .56rem;
+          }
+        }
+      }
+
+    }
+  }
+
+  .btnBox {
+    height: 2.28rem;
+    position: relative;
+
+    footer {
+      width: 100%;
+      height: 2.28rem;
+      @include flex-center(column, flex-start);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding-top: .16rem;
+      z-index: 2;
+      transform: translateZ(2px);
+
+      #left_main & {
+        position: absolute;
+      }
+
+      .btn {
+        line-height: 1.1rem;
+        font-weight: bold;
+        font-family: SourceHanSansSC-Bold;
+      }
+
+      // 温馨提示
+      .warn {
+        font-size: .22rem;
+        text-align: center;
+        z-index: 1;
+        transform: translateZ(1px);
+      }
+    }
+  }
+
+
+  $themeConf: ((
+    bg: #fff,
+    txt-cr: #666,
+    title: (
+      color: #333,
+      font-size: .36rem,
+      text-align: center,
+    ),
+    header: (
+      height: 4.96rem,
+      tit1: (
+        font-family: SourceHanSansSC-Medium !important,
+        font-size: .4rem,
+        color: #FED9A3,
+        text-shadow: 0 2px 4px rgba(182, 0, 15, 0.30)
+      ),
+      tit2: (
+        font-family: SourceHanSansSC-Heavy !important,
+        bf-color: #FFE4AF,
+        color: #FFF1DD,
+        font-size: .92rem,
+        text-shadow: 0 2px 4px rgba(182, 0, 15, 0.30),
+        margin-bottom: -.2rem
+      ),
+      tit3: #FFF1DD,
+    ),
+    hqSub: #666,
+    card: (
+      //tit-bgimg: '#E2582C,#EA4B17',
+      //tit-bdimg: '#F88E49,#E2582C',
+      tit-bgimg: #EA4B17,
+      tit-bdimg: #E2582C,
+      txt-cr: #666,
+      tit-cr: #333,
+    ),
+    advantage: #333,
+    partList: (
+      tit-cr: #333,
+      tit-fz: .36rem,
+      tit-mb: .008rem,
+      pl: 3.08rem,
+      mts: .4rem,
+      size: 1.2rem,
+      pos: 1.02rem,
+      pb: .56rem
+    ),
+    dropsList: (
+      txt-bcr: #151515
+    ),
+    about: (
+      tmb: .56rem,
+      mb: 1.02rem,
+    ),
+    footer: (
+      bg: linear-gradient(0deg, #FFF 56%, rgba(255, 255, 255, 0) 100%),
+      warn-cr: #D5D5D5,
+      btn: (
+        text-align: center,
+        font-size: .44rem,
+        color: #EA4B17,
+        width: 6.94rem,
+        height: 1.76rem,
+        line-height: 1.3rem,
+        flex-shrink: 0,
+        margin-bottom: -.5rem,
+        padding-right: .32rem
+      )
+    )
+  ), (
+    bg: linear-gradient(0deg, #0E2EA2 0%, #15066B 20%, #140669 100%),
+    txt-cr: #BCC6F7,
+    title: (
+      color: #fff,
+      font-size: .4rem,
+      text-align: left,
+      padding-left: .54rem
+    ),
+    header: (
+      height: 4.8rem,
+      tit1: (
+        font-family: SourceHanSansSC-Bold,
+        font-size: .34rem,
+        color: #fff,
+      ),
+      tit2: (
+        font-family: SourceHanSansSC-Bold,
+        bf-color: #FFE0BC,
+        color: #FF5AAF,
+        font-size: .8rem,
+        margin-bottom: 0
+      ),
+      tit3: #fff,
+    ),
+    hqSub: #fff,
+    card: (
+      //tit-bgimg: '#FFF1B2,#FFDF7B',
+      //tit-bdimg: '#FFF1B2,#FFDF7B',
+      tit-bgimg: #FFF1B2,
+      tit-bdimg: #FFF1B2,
+      txt-cr: #fff,
+      tit-cr: #fff
+    ),
+    advantage: #fff,
+    partList: (
+      tit-cr: #fff,
+      tit-fz: .36rem,
+      tit-mb: .08rem,
+      pl: 3.24rem,
+      mts: (.24rem, -.32rem, .44rem, .44rem, .36rem),
+      size: (2.52rem, 2.76rem, 2.74rem, 1.68rem, 2.3rem),
+      pos: (.8rem, .96rem, .736rem, .16rem, .8rem),
+      pb: .4rem
+    ),
+    dropsList: (
+      txt-bcr: #BCC6F7
+    ),
+    about: (
+      tmb: .28rem,
+      mb: .48rem,
+    ),
+    footer: (
+      bg: linear-gradient(0deg, #0E2EA2 0%, #111D8A 100%),
+      warn-cr: #BCC6F7,
+      btn: (
+        padding-left: 1rem,
+        font-size: .48rem,
+        color: #fff,
+        width: 6.8rem,
+        height: 1.12rem,
+        margin-bottom: .192rem,
+      ),
+    )
+  ), (
+    bg: #fff,
+    txt-cr: #666,
+    title: (
+      color: #58271F,
+      font-size: .36rem,
+      text-align: left,
+      padding-left: .56rem
+    ),
+    header: (
+      height: 4.58rem,
+      tit1: (
+        font-family: SourceHanSansSC-Bold !important,
+        font-size: .4rem,
+        color: #fff,
+        font-weight: bold,
+        margin-top: -.52rem,
+        margin-bottom: .04rem,
+      ),
+      tit2: (
+        font-family: SourceHanSansSC-Heavy !important,
+        bf-color: #914F42,
+        color: #58271F,
+        font-size: .92rem,
+        text-shadow: 0 0 4px #FFCE6F,
+        margin-bottom: .16rem,
+      ),
+      tit3: #58271F,
+    ),
+    hqSub: #666,
+    card: (
+      //tit-bgimg: '#EA4B17,#EA4B17',
+      //tit-bdimg: '#F88E49,#E2582C',
+      tit-bgimg: #EA4B17,
+      tit-bdimg: #E2582C,
+      txt-cr: #666,
+      tit-cr: #58271F
+    ),
+    advantage: #333,
+    partList: (
+      tit-cr: #58271F,
+      tit-fz: .36rem,
+      tit-mb: .008rem,
+      pl: 3.08rem,
+      mts: .4rem,
+      size: 1.2rem,
+      pos: 1.02rem,
+      pb: .56rem
+    ),
+    dropsList: (
+      txt-bcr: #151515
+    ),
+    about: (
+      tmb: .56rem,
+      mb: 1.12rem,
+    ),
+    footer: (
+      bg: linear-gradient(0deg, #FFF 56%, rgba(255, 255, 255, 0) 100%),
+      warn-cr: #D5D5D5,
+      btn: (
+        text-align: center,
+        font-size: .44rem,
+        color: #EA4B17,
+        width: 6.94rem,
+        height: 2.02rem,
+        flex-shrink: 0,
+        margin-bottom: -.5rem,
+        padding-right: .32rem,
+        padding-top: .28rem
+      )
+    )
+  ), (
+    bg: linear-gradient(-180deg, #32291F 0%, #211100 48%, #322920 100%),
+    desc-cr: #F4E4C0,
+    txt-cr: #fff,
+    title: (
+      color: #F4E4C0,
+      font-size: .3rem,
+      text-align: left,
+      padding-left: .54rem
+    ),
+    header: (
+      height: 2.84rem,
+      tit1: (
+        font-family: SourceHanSansSC-Bold,
+        font-size: .34rem,
+        color: #F4E4C0,
+      ),
+      tit2: (
+        font-family: SourceHanSansSC-Bold,
+        bf-color: #FCEDC8,
+        color: #E5C785,
+        font-size: .8rem,
+        margin-bottom: -.08rem
+      ),
+      tit3: #E6C989,
+    ),
+    hqSub: #F4E4C0,
+    card: (
+      //tit-bgimg: '#FFF1B2,#FFDF7B',
+      //tit-bdimg: '#FFF1B2,#FFDF7B',
+      tit-bgimg: #FFDF7B,
+      tit-bdimg: #FFDF7B,
+      txt-cr: #fff,
+      tit-cr: #564631
+    ),
+    advantage: #fff,
+    partList: (
+      tit-cr: #F4E4C0,
+      tit-fz: .36rem,
+      tit-mb: .008rem,
+      pl: 2.4rem,
+      mts: .4rem,
+      size: 1.2rem,
+      pos: .6rem,
+      pb: .56rem
+    ),
+    dropsList: (
+      txt-bcr: #333
+    ),
+    about: (
+      tmb: .28rem,
+      mb: .48rem,
+    ),
+    footer: (
+      bg: linear-gradient(0deg, #322920 56%, rgba(255, 255, 255, 0) 100%),
+      warn-cr: #CBA563,
+      btn: (
+        text-align: center,
+        font-size: .44rem,
+        color: #564631,
+        width: 6.94rem,
+        height: 1.76rem,
+        flex-shrink: 0,
+        margin-bottom: -.5rem,
+        padding-right: .32rem,
+        line-height: 1.3rem
+      )
+    )
+  ));
+  @for $idx from 1 through 4 {
+    &.theme#{$idx} {
+      $imgFolder: './images/#{$idx}/';
+
+      $conf: nth($themeConf, $idx);
+      /* 背景图 */
+      background: map-get($conf, bg);
+      $txt-cr: map-get($conf, txt-cr);
+
+      header {
+        @include bg-image($imgFolder + "head");
+        height: map-get(map-get($conf, header), height);
+        $header: map-get($conf, header);
+
+        .tit1 {
+          @each $key, $val in map-get($header, tit1) {
+            #{$key}: $val;
+          }
+        }
+
+        .tit2 {
+          $tit2Conf: map-get($header, tit2);
+          @each $key, $val in $tit2Conf {
+            #{$key}: $val;
+          }
+
+          &:before {
+            color: map-get($tit2Conf, bf-color);
+          }
+        }
+
+        .tit3 {
+          color: map-get($header, tit3);
+        }
+
+        @if ($idx == 1) {
+          margin-bottom: .96rem;
+          .topBtn {
+            display: block;
+            position: absolute;
+            width: 6.94rem;
+            height: 1.76rem;
+            bottom: -1.08rem;
+            left: 50%;
+            margin-left: -3.47rem;
+            text-align: center;
+            @include bg-image($imgFolder + "btn");
+            font-family: SourceHanSansSC-Bold;
+            font-size: .44rem;
+            color: #EA4B17;
+            line-height: 1.3rem;
+          }
+        } @else if ($idx == 2) {
+          .titBox {
+            margin-top: -1.26rem;
+          }
+        } @else if ($idx == 3) {
+          margin-bottom: -.44rem;
+        } @else if ($idx == 4) {
+          justify-content: flex-end;
+          margin-top: .4rem;
+        }
+      }
+
+      /deep/ {
+        .title {
+          @each $key, $val in map-get($conf, title) {
+            #{$key}: $val;
+          }
+        }
+
+
+        .tips {
+          @include bg-image($imgFolder + "tips");
+        }
+
+        .hqBox {
+          @if ($idx == 1) {
+            @include flex-center(column);
+          }
+
+          .title {
+            @if ($idx > 1) {
+              padding-left: 0;
+              text-align: left;
+            }
+          }
+
+          .hqSub {
+            color: map-get($conf, hqSub);
+          }
+        }
+
+        .desc {
+          color: #{if($idx == 4, map-get($conf, desc-cr), $txt-cr)};
+        }
+
+        .card {
+          $card: map-get($conf, card);
+
+          .title {
+            color: map-get($card, tit-cr);
+            text-align: center;
+            @if ($idx == 3) {
+              width: auto;
+              font-size: .36rem;
+              height: auto;
+              text-align: left;
+              line-height: 1;
+              margin-bottom: .4rem;
+            }
+          }
+
+          .txt {
+            color: map-get($card, txt-cr);
+          }
+
+
+          &.card1 {
+            @include bg-image($imgFolder + "q1");
+
+            @if ($idx == 3) {
+              height: 6.84rem;
+              margin-bottom: 0;
+
+              .title {
+                margin-top: .32rem;
+                margin-left: .56rem;
+              }
+              .cons .trs {
+                padding-left: .56rem;
+                padding-right: 1.76rem;
+              }
+            }
+
+            .cons .trs {
+              .tit {
+                //background-image: linear-gradient(#{map-get($card, tit-bgimg)});
+                //border-image: linear-gradient(#{map-get($card, tit-bdimg)}) 1 10;
+                color: map-get($card, tit-bgimg);
+                border-color: map-get($card, tit-bdimg);
+              }
+            }
+          }
+
+          &.card2 {
+            @include bg-image($imgFolder + "q2");
+            @if ($idx == 3) {
+              min-height: 4rem;
+              background-size: 100% 4rem;
+              background-position: top;
+              .title {
+                margin-top: .32rem;
+                margin-left: 1.4rem;
+              }
+              .txt {
+                justify-content: start;
+                font-size: .36rem;
+                padding-left: 1.4rem;
+              }
+            }
+          }
+        }
+
+        .advantage {
+          @include bg-image($imgFolder + 'advantages');
+
+          .txt {
+            color: map-get($conf, advantage);
+          }
+        }
+
+        .partList {
+          $partList: map-get($conf, partList);
+          padding-bottom: map-get($partList, pb);
+          @if ($idx % 2 == 1) {
+            @include bg-image($imgFolder + 'box', no-repeat, .306rem top, 6.92rem 100%);
+          }
+
+          .title {
+            @if ($idx % 2  == 1) {
+              font-size: .4rem;
+              margin-bottom: .08rem;
+              text-align: center;
+            } @else if ($idx == 4) {
+              font-size: .3rem;
+            }
+          }
+
+          .partTr {
+            padding-left: map-get($partList, pl);
+            @for $i from 1 through 5 {
+              &:nth-child(#{$i + 1}) {
+                @include bg-image($imgFolder + 'part-' + $i);
+              }
+            }
+            @if ($idx != 2) {
+              margin-top: map-get($partList, mts);
+              background-position: map-get($partList, pos) center !important;
+              background-size: map-get($partList, size) !important;
+            } @else if ($idx == 2) {
+              $sizes: map-get($partList, size);
+              @each $size in $sizes {
+                $i: index($sizes, $size);
+                &:nth-child(#{$i + 1}) {
+                  height: $size;
+                  margin-top: nth(map-get($partList, mts), $i);
+                  padding-top: nth(map-get($partList, pos), $i);
+                }
+              }
+            }
+
+            .partTit {
+              font-size: map-get($partList, tit-fz);
+              color: map-get($partList, tit-cr);
+              margin-bottom: map-get($partList, tit-mb);
+            }
+
+            .partTxt {
+              color: $txt-cr;
+            }
+          }
+        }
+
+        .dropsList {
+          $drops: map-get($conf, dropsList);
+
+          .tit {
+            @include bg-image($imgFolder + 'title');
+          }
+
+          .txt {
+            color: $txt-cr;
+
+            b {
+              color: map-get($drops, txt-bcr);
+            }
+          }
+        }
+
+        .flowImg {
+          @include bg-image($imgFolder + 'flow');
+        }
+
+        .about {
+          $about: map-get($conf, about);
+          @if ($idx % 2  == 1) {
+            background-image: linear-gradient(0deg, #FCFBF9 0%, #FFFCEF 100%);
+            padding-top: .8rem;
+          }
+
+          .title {
+            margin-bottom: map-get($about, tmb);
+          }
+
+          .txt {
+            color: $txt-cr;
+            margin-bottom: map-get($about, mb);
+            @if ($idx % 2  == 1) {
+              &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: .6rem;
+                bottom: -.86rem;
+                left: 0;
+                @include bg-image($imgFolder + 'line');
+              }
+              &:last-child:after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        $footer: map-get($conf, footer);
+        background-image: map-get($footer, bg);
+
+        .btn {
+          @include bg-image($imgFolder + 'btn');
+          @each $key, $val in (map-get($footer, btn)) {
+            #{$key}: $val;
+          }
+        }
+
+        .warn {
+          color: map-get($footer, warn-cr);
+        }
+      }
+    }
+  }
+}
+
+.phone {
+  .btnBox footer {
+    position: absolute;
+  }
+}

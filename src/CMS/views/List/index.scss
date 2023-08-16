@@ -1,0 +1,43 @@
+.PageList {
+  font-family: PingFangSC-Medium;
+  height: 100vh;
+  padding: 75px 36px;
+  background: #f8fafb;
+  position: relative;
+  &:before {
+    content: '';
+    height: 75px;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #E8ECEF;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  header {
+    font-size: 0;
+    margin: 12px 0;
+  }
+  .tableBox {
+    background: #fff;
+    padding: 16px 48px 12px;
+    // .icon {
+    //   font-size: 22px;
+    //   cursor: pointer;
+    //   color: #f56c6c;
+    //   //color: #409eff;
+    //   &.gray{
+    //     color: #606266;
+    //   }
+    // }
+    .el-button {
+      margin-left: 0;
+    }
+  }
+
+  /deep/ {
+    .dateCell .cell {
+      word-break: break-word;
+    }
+  }
+}
